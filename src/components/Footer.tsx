@@ -128,7 +128,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            &copy; 2026 Hi Impact Shipping Company Inc. All rights reserved. Registered Marine &amp; Intermodal Carrier.
+            &copy; 2026 Hi Impact Shipping Company Inc. All rights reserved. 
           </div>
 
           <div className="flex items-center gap-6">

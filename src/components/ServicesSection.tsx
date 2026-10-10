@@ -137,54 +137,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             );
           })}
         </div>
-
-        {/* Global Transit Matrix Strip */}
-        <div className="mt-16 bg-slate-50 border border-slate-200 rounded-xl p-6 sm:p-8 shadow-sm">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-200">
-            <div>
-              <h3 className="text-lg font-bold text-[#081533]">
-                Standard Transit Corridors &amp; Velocity Benchmarks
-              </h3>
-              <p className="text-xs text-black mt-1">
-                Typical hub-to-hub transit benchmarks across high-density commerce corridors.
-              </p>
-            </div>
-            <div className="text-xs font-mono text-[#b89225] tabular-nums font-bold">
-              Carrier Schedule: Q2 2026 Active Routing
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
-            <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-xs">
-              <div className="text-xs text-[#b89225] font-bold mb-1">Florida Express Corridor</div>
-              <div className="text-sm font-bold text-[#081533]">Miami / Fort Lauderdale ⇄ Kingston</div>
-              <div className="mt-2 text-xs text-black font-mono font-medium">Ocean Freight: 3–4 Days</div>
-              <div className="text-xs text-black font-mono font-medium">Air Cargo: 24 Hours</div>
-            </div>
-
-            <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-xs">
-              <div className="text-xs text-[#b89225] font-bold mb-1">US Tri-State Corridor</div>
-              <div className="text-sm font-bold text-[#081533]">New York / New Jersey ⇄ Kingston</div>
-              <div className="mt-2 text-xs text-black font-mono font-medium">Ocean Freight: 5–6 Days</div>
-              <div className="text-xs text-black font-mono font-medium">Air Cargo: 24–36 Hours</div>
-            </div>
-
-            <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-xs">
-              <div className="text-xs text-[#b89225] font-bold mb-1">UK &amp; European Route</div>
-              <div className="text-sm font-bold text-[#081533]">London / Southampton ⇄ Kingston</div>
-              <div className="mt-2 text-xs text-black font-mono font-medium">Ocean Freight: 12–14 Days</div>
-              <div className="text-xs text-black font-mono font-medium">Air Cargo: 48 Hours</div>
-            </div>
-
-            <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-xs">
-              <div className="text-xs text-[#b89225] font-bold mb-1">Islandwide Haulage</div>
-              <div className="text-sm font-bold text-[#081533]">Kingston Wharves ⇄ All 14 Parishes</div>
-              <div className="mt-2 text-xs text-black font-mono font-medium">Wharf Pullout: Same-Day</div>
-              <div className="text-xs text-black font-mono font-medium">Door Delivery: 24–48 Hours</div>
-            </div>
-          </div>
-        </div>
-
       </div>
 
       {/* Service Detail Modal */}
