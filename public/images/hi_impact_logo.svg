@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <!-- Rich Gold Metallic Gradients -->
+    <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE89E" />
+      <stop offset="25%" stop-color="#E5BE53" />
+      <stop offset="50%" stop-color="#FFF0B8" />
+      <stop offset="75%" stop-color="#B88A22" />
+      <stop offset="100%" stop-color="#8A630A" />
+    </linearGradient>
+
+    <linearGradient id="goldBright" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DFB143" />
+      <stop offset="30%" stop-color="#FFF3C4" />
+      <stop offset="70%" stop-color="#E7BD54" />
+      <stop offset="100%" stop-color="#B3841D" />
+    </linearGradient>
+
+    <linearGradient id="goldAccent" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C59628" />
+      <stop offset="50%" stop-color="#FDE89C" />
+      <stop offset="100%" stop-color="#9C7015" />
+    </linearGradient>
+
+    <!-- Deep Maritime Navy Radial Background -->
+    <radialGradient id="navyBg" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#0f295e" />
+      <stop offset="45%" stop-color="#08183d" />
+      <stop offset="85%" stop-color="#030c22" />
+      <stop offset="100%" stop-color="#020817" />
+    </radialGradient>
+
+    <!-- Wave Aqua Accent -->
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.4" />
+    </linearGradient>
+
+    <!-- Drop Shadows for 3D Luxury Depth -->
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.7" />
+    </filter>
+
+    <!-- Arched Text Paths -->
+    <!-- Top Arc for HI-IMPACT (sweep=1: clockwise over top) -->
+    <path id="topTextArc" d="M 75,250 A 175,175 0 0,1 425,250" fill="none" />
+    
+    <!-- Bottom Arc for SHIPPING & CO. (drawn from left to right along bottom curve) -->
+    <path id="bottomTextArc" d="M 90,270 A 175,175 0 0,0 410,270" fill="none" />
+  </defs>
+
+  <!-- Background Base Shadow -->
+  <circle cx="250" cy="250" r="242" fill="#000000" opacity="0.4" filter="blur(6px)" />
+
+  <!-- Outer Heavy Gold Beveled Ring -->
+  <circle cx="250" cy="250" r="238" fill="url(#goldRim)" />
+
+  <!-- Outer Dark Inset Channel -->
+  <circle cx="250" cy="250" r="226" fill="#040d21" />
+
+  <!-- Mid Gold Filigree Ring -->
+  <circle cx="250" cy="250" r="222" fill="none" stroke="url(#goldBright)" stroke-width="2.5" />
+
+  <!-- Main Navy Dial Face -->
+  <circle cx="250" cy="250" r="217" fill="url(#navyBg)" />
+
+  <!-- Subtle Internal Compass / Globe Grid -->
+  <g opacity="0.16" stroke="#93c5fd" stroke-width="1.2" fill="none">
+    <!-- Concentric Latitude Rings -->
+    <ellipse cx="250" cy="250" rx="190" ry="85" />
+    <ellipse cx="250" cy="250" rx="190" ry="145" />
+    <ellipse cx="250" cy="250" rx="190" ry="190" />
+    <!-- Meridian Longitude Arcs -->
+    <ellipse cx="250" cy="250" rx="90" ry="190" />
+    <ellipse cx="250" cy="250" rx="150" ry="190" />
+    <line x1="250" y1="60" x2="250" y2="440" stroke-dasharray="4,4" />
+    <line x1="60" y1="250" x2="440" y2="250" stroke-dasharray="4,4" />
+  </g>
+
+  <!-- Inner Gold Bezel Ring separating text band from center emblem -->
+  <circle cx="250" cy="250" r="148" fill="none" stroke="url(#goldRim)" stroke-width="3" />
+  <circle cx="250" cy="250" r="143" fill="none" stroke="#040c1f" stroke-width="1.5" />
+
+  <!-- ================= TOP ARCHED TEXT: HI-IMPACT ================= -->
+  <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="34" letter-spacing="4" fill="url(#goldBright)" filter="url(#dropShadow)">
+    <textPath href="#topTextArc" startOffset="50%" text-anchor="middle">
+      HI-IMPACT
+    </textPath>
+  </text>
+
+  <!-- Left Star Flank -->
+  <g transform="translate(74, 258) scale(0.95)" fill="url(#goldBright)" filter="url(#dropShadow)">
+    <polygon points="12,0 15,9 24,9 17,14 20,23 12,18 4,23 7,14 0,9 9,9" />
+  </g>
+
+  <!-- Right Star Flank -->
+  <g transform="translate(402, 258) scale(0.95)" fill="url(#goldBright)" filter="url(#dropShadow)">
+    <polygon points="12,0 15,9 24,9 17,14 20,23 12,18 4,23 7,14 0,9 9,9" />
+  </g>
+
+  <!-- ================= BOTTOM ARCHED TEXT: SHIPPING & CO. ================= -->
+  <text font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="800" font-size="24" letter-spacing="5" fill="url(#goldBright)" filter="url(#dropShadow)">
+    <textPath href="#bottomTextArc" startOffset="50%" text-anchor="middle">
+      SHIPPING &amp; CO.
+    </textPath>
+  </text>
+
+  <!-- ================= CENTER EMBLEM: MARITIME & AIR CARGO ================= -->
+
+  <!-- Golden Sunburst / Glow behind Ship -->
+  <circle cx="250" cy="250" r="130" fill="#d4af37" opacity="0.08" filter="blur(15px)" />
+
+  <!-- Center Artwork Container -->
+  <g id="centerMark" transform="translate(0, 0)">
+    
+    <!-- Stylized Dynamic Ocean Waves at Bottom of Core -->
+    <path d="M 140,295 C 170,285 200,310 240,295 C 280,280 320,305 360,290 L 360,330 C 310,355 190,355 140,330 Z" 
+          fill="url(#navyBg)" />
+
+    <!-- Cyan Ocean Wave Crest -->
+    <path d="M 145,305 C 180,290 215,315 255,300 C 295,285 330,310 355,298 C 340,320 300,335 250,335 C 200,335 160,320 145,305 Z" 
+          fill="url(#waveGrad)" />
+
+    <!-- Gold Ocean Wave Ribbon -->
+    <path d="M 155,312 C 190,300 220,322 255,310 C 290,298 325,318 345,310 C 330,326 295,338 250,338 C 205,338 170,326 155,312 Z" 
+          fill="url(#goldAccent)" />
+
+    <!-- Flight Jet Vapor Trail Arc soaring from ship to sky -->
+    <path d="M 160,285 C 160,200 200,165 315,160 C 345,158 360,154 365,150" 
+          fill="none" stroke="url(#goldRim)" stroke-width="3" stroke-linecap="round" stroke-dasharray="160 12" opacity="0.9" filter="url(#dropShadow)" />
+    
+    <path d="M 175,280 C 180,215 220,180 310,172" 
+          fill="none" stroke="#67e8f9" stroke-width="1.8" stroke-linecap="round" opacity="0.75" />
+
+    <!-- Golden Cargo Aircraft / Jet Silhouette Climbing High -->
+    <g transform="translate(362, 146) rotate(-22) scale(0.95)" fill="url(#goldBright)" filter="url(#dropShadow)">
+      <!-- Fuselage -->
+      <path d="M -2,0 L 26,5 L 29,7 L 26,9 L -2,14 L -12,14 L -8,7 L -12,0 Z" />
+      <!-- Swept Wings -->
+      <path d="M 8,5 L -6,-16 L 2,-16 L 15,5 Z" />
+      <path d="M 8,9 L -6,30 L 2,30 L 15,9 Z" />
+      <!-- Tail fin -->
+      <path d="M -8,7 L -17,-4 L -13,-4 L -4,7 Z" />
+    </g>
+
+    <!-- Heavy Modern Cargo Container Vessel (Ocean Carrier) -->
+    <g id="cargoShip" filter="url(#dropShadow)">
+      <!-- Vessel Main Hull in Lustrous Gold -->
+      <path d="M 152,274 L 175,296 L 315,296 L 350,266 L 340,264 L 305,270 L 170,270 Z" 
+            fill="url(#goldRim)" stroke="#926914" stroke-width="1.2" />
+
+      <!-- Bow Water Line / Red Accent Sheen -->
+      <path d="M 175,292 L 315,292 L 345,268 L 342,265 L 310,287 L 178,287 Z" 
+            fill="#8a6108" opacity="0.6" />
+
+      <!-- Upper Deck Strip -->
+      <rect x="175" y="262" width="135" height="4" fill="url(#goldBright)" rx="1" />
+
+      <!-- Container Stack Row 1 (Lower) -->
+      <g fill="url(#goldAccent)" stroke="#06122b" stroke-width="1">
+        <rect x="180" y="247" width="22" height="14" rx="1.5" />
+        <rect x="204" y="247" width="22" height="14" rx="1.5" fill="#e5be53" />
+        <rect x="228" y="247" width="22" height="14" rx="1.5" />
+        <rect x="252" y="247" width="22" height="14" rx="1.5" fill="#fde68a" />
+        <rect x="276" y="247" width="22" height="14" rx="1.5" />
+      </g>
+
+      <!-- Container Stack Row 2 (Middle) -->
+      <g fill="url(#goldRim)" stroke="#06122b" stroke-width="1">
+        <rect x="184" y="233" width="22" height="13" rx="1.5" fill="#fde68a" />
+        <rect x="208" y="233" width="22" height="13" rx="1.5" />
+        <rect x="232" y="233" width="22" height="13" rx="1.5" fill="#e5be53" />
+        <rect x="256" y="233" width="22" height="13" rx="1.5" />
+      </g>
+
+      <!-- Container Stack Row 3 (Top Tier) -->
+      <g fill="url(#goldAccent)" stroke="#06122b" stroke-width="1">
+        <rect x="210" y="220" width="22" height="12" rx="1.5" />
+        <rect x="234" y="220" width="22" height="12" rx="1.5" fill="#fde68a" />
+      </g>
+
+      <!-- Container Grooves Detail -->
+      <g stroke="#030b1b" stroke-width="0.8" opacity="0.4">
+        <line x1="187" y1="247" x2="187" y2="261" />
+        <line x1="194" y1="247" x2="194" y2="261" />
+        <line x1="211" y1="247" x2="211" y2="261" />
+        <line x1="218" y1="247" x2="218" y2="261" />
+        <line x1="235" y1="247" x2="235" y2="261" />
+        <line x1="242" y1="247" x2="242" y2="261" />
+        <line x1="259" y1="247" x2="259" y2="261" />
+        <line x1="266" y1="247" x2="266" y2="261" />
+        <line x1="283" y1="247" x2="283" y2="261" />
+        <line x1="290" y1="247" x2="290" y2="261" />
+      </g>
+
+      <!-- Ship Superstructure / Bridge Tower (Aft / Stern) -->
+      <path d="M 302,264 L 302,228 L 322,228 L 322,264 Z" fill="url(#goldRim)" stroke="#926914" stroke-width="1" />
+      <path d="M 306,228 L 306,218 L 318,218 L 318,228 Z" fill="url(#goldBright)" />
+      
+      <!-- Bridge Windows -->
+      <rect x="306" y="222" width="12" height="3" fill="#040e24" />
+      <rect x="305" y="233" width="14" height="2.5" fill="#040e24" />
+
+      <!-- Radar Mast & Antennas -->
+      <line x1="312" y1="218" x2="312" y2="204" stroke="url(#goldBright)" stroke-width="2" />
+      <line x1="308" y1="208" x2="316" y2="208" stroke="url(#goldBright)" stroke-width="1.8" />
+      <!-- Radar Scanner -->
+      <ellipse cx="312" cy="204" rx="4" ry="1.5" fill="url(#goldBright)" />
+
+      <!-- Ship Exhaust Stack / Funnel -->
+      <path d="M 324,242 L 324,264 L 331,264 L 331,238 Z" fill="url(#goldAccent)" stroke="#926914" stroke-width="1" />
+      <rect x="323" y="238" width="8" height="3" fill="#050e24" />
+    </g>
+
+    <!-- Prominent Dynamic Monogram "HI" Insignia Banner centered below vessel -->
+    <g transform="translate(250, 318)" filter="url(#dropShadow)">
+      <!-- Anchor & Crest Accent -->
+      <path d="M -22,-2 C -18,12 18,12 22,-2" fill="none" stroke="url(#goldBright)" stroke-width="3" stroke-linecap="round" />
+      <circle cx="0" cy="5" r="3" fill="url(#goldBright)" />
+    </g>
+  </g>
+
+  <!-- Specular Highlight Sheen over top curve -->
+  <path d="M 100,140 A 217,217 0 0,1 400,140" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.25" />
+</svg>
