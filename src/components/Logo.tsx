@@ -36,10 +36,18 @@ export const Logo: React.FC<LogoProps> = ({
 
         {!imageError ? (
           <img
-            src="/images/hi_impact_brand_logo.jpg"
+            src="/images/hi_impact_brand_logo.png"
             alt="HI-Impact Shipping Official Logo"
             className="w-full h-full object-cover object-center select-none"
-            onError={() => setImageError(true)}
+            onError={(e) => {
+              // try fallback jpg if png fails
+              const target = e.currentTarget;
+              if (target && !target.src.endsWith('.jpg')) {
+                target.src = '/images/hi_impact_brand_logo.jpg';
+              } else {
+                setImageError(true);
+              }
+            }}
           />
         ) : (
           /* High-fidelity Vector Fallback */
