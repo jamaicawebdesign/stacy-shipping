@@ -111,26 +111,43 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
     const randomRef = `HI-INQ-${Math.floor(100000 + Math.random() * 900000)}`;
 
     try {
-      // Forward form data to hiimpactshipping@outlook.com via FormSubmit service
-      await fetch('https://formsubmit.co/ajax/hiimpactshipping@outlook.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          _subject: `New Shipping Inquiry [${randomRef}] - ${formData.fullName} (${formData.service})`,
-          _replyto: formData.email,
-          _template: 'table',
-          'Reference ID': randomRef,
-          'Full Name': formData.fullName,
-          'Email Address': formData.email,
-          'Phone Number': formData.phone,
-          'Selected Service': formData.service,
-          'Inquiry Message': formData.message,
-          'Submitted Date/Time': new Date().toLocaleString(),
+      // Forward form data to primary mailbox (hiimpactshipping@outlook.com) and CC copy to islandweb@proton.me
+      const inquiryPayload = {
+        _subject: `New Shipping Inquiry [${randomRef}] - ${formData.fullName} (${formData.service})`,
+        _replyto: formData.email,
+        _template: 'table',
+        _cc: 'islandweb@proton.me',
+        'Reference ID': randomRef,
+        'Full Name': formData.fullName,
+        'Email Address': formData.email,
+        'Phone Number': formData.phone,
+        'Selected Service': formData.service,
+        'Inquiry Message': formData.message,
+        'Submitted Date/Time': new Date().toLocaleString(),
+      };
+
+      // Send to both endpoints concurrently to ensure both inboxes receive the submission notification
+      await Promise.allSettled([
+        fetch('https://formsubmit.co/ajax/hiimpactshipping@outlook.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify(inquiryPayload),
         }),
-      });
+        fetch('https://formsubmit.co/ajax/islandweb@proton.me', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            ...inquiryPayload,
+            _subject: `[Copy] New Shipping Inquiry [${randomRef}] - ${formData.fullName} (${formData.service})`,
+          }),
+        }),
+      ]);
     } catch (err) {
       console.warn('Form forwarding submission notice:', err);
     } finally {
