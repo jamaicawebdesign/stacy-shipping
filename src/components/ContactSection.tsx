@@ -96,7 +96,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
     return errors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errors = validateForm();
 
@@ -108,8 +108,32 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
     setFormErrors({});
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      const randomRef = `HI-INQ-${Math.floor(100000 + Math.random() * 900000)}`;
+    const randomRef = `HI-INQ-${Math.floor(100000 + Math.random() * 900000)}`;
+
+    try {
+      // Forward form data to hiimpactshipping@outlook.com via FormSubmit service
+      await fetch('https://formsubmit.co/ajax/hiimpactshipping@outlook.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: `New Shipping Inquiry [${randomRef}] - ${formData.fullName} (${formData.service})`,
+          _replyto: formData.email,
+          _template: 'table',
+          'Reference ID': randomRef,
+          'Full Name': formData.fullName,
+          'Email Address': formData.email,
+          'Phone Number': formData.phone,
+          'Selected Service': formData.service,
+          'Inquiry Message': formData.message,
+          'Submitted Date/Time': new Date().toLocaleString(),
+        }),
+      });
+    } catch (err) {
+      console.warn('Form forwarding submission notice:', err);
+    } finally {
       setSubmissionReceipt({
         referenceId: randomRef,
         fullName: formData.fullName,
@@ -128,7 +152,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
         service: '',
         message: ''
       });
-    }, 700);
+    }
   };
 
   const handleCopyReference = () => {
@@ -173,7 +197,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
                   Inquiry Successfully Received
                 </h3>
                 <p className="text-sm text-black max-w-md mx-auto mb-4 leading-relaxed">
-                  Thank you, <span className="font-bold text-black">{submissionReceipt.fullName}</span>. Your inquiry regarding <span className="font-bold text-[#081533]">{submissionReceipt.service}</span> has been dispatched to our Kingston commercial desk.
+                  Thank you, <span className="font-bold text-black">{submissionReceipt.fullName}</span>. Your inquiry regarding <span className="font-bold text-[#081533]">{submissionReceipt.service}</span> has been dispatched to our Kingston commercial desk at <span className="font-semibold text-[#081533]">hiimpactshipping@outlook.com</span>.
                 </p>
                 <p className="text-xs text-black mb-6">
                   A representative will review your message and contact you at <span className="font-semibold text-black">{submissionReceipt.email}</span> or <span className="font-semibold text-black">{submissionReceipt.phone}</span> within 2 hours during normal business operations.
@@ -203,7 +227,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
                   </button>
                 </div>
 
-                <div className="flex justify-center">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                  <a
+                    href={`mailto:hiimpactshipping@outlook.com?subject=${encodeURIComponent(`Shipping Inquiry [${submissionReceipt.referenceId}] - ${submissionReceipt.fullName}`)}&body=${encodeURIComponent(`Hello Hi Impact Shipping,\n\nReference: ${submissionReceipt.referenceId}\nClient: ${submissionReceipt.fullName}\nPhone: ${submissionReceipt.phone}\nEmail: ${submissionReceipt.email}\nService: ${submissionReceipt.service}\n\nMessage:\n${submissionReceipt.message}`)}`}
+                    className="inline-flex items-center gap-2 px-5 py-3 text-xs font-semibold text-[#081533] bg-slate-200 hover:bg-slate-300 rounded-lg transition-colors shadow-sm"
+                  >
+                    <Mail className="w-4 h-4 text-[#081533]" />
+                    <span>Open in Email App</span>
+                  </a>
+
                   <button
                     type="button"
                     onClick={() => setSubmissionReceipt(null)}

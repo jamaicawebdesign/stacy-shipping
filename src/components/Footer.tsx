@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#020817] text-slate-300 border-t border-[#172c5a] text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-[#172c5a]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-[#172c5a]">
           
           {/* Brand Col */}
           <div className="lg:col-span-1">
@@ -107,20 +107,6 @@ export const Footer: React.FC = () => {
                 </a>
               </div>
             </div>
-          </div>
-
-          {/* Gateways Col */}
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#d4af37] mb-3">
-              Operating Gateways
-            </h4>
-            <ul className="space-y-2 text-slate-300">
-              <li>Kingston Container Terminal (KCT)</li>
-              <li>Port of Los Angeles / Long Beach</li>
-              <li>Port of Rotterdam (Maasvlakte)</li>
-              <li>Port of Singapore (PSA)</li>
-              <li>Hamburg Container Terminal</li>
-            </ul>
           </div>
 
         </div>
